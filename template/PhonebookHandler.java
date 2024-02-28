@@ -12,6 +12,21 @@ import java.util.*;
  */
 
 public class PhonebookHandler implements iPhonebookHander{
-
- 
+	
+	@Override
+	public List<PhonebookEntry> binarySearch(List<Contact> sortedContacts, String name){
+		
+	}
+	
+	
+	@Override
+	public List<Contact> sortByName(){
+		
+	}
+	
+	@Override
+	public void display(List<Contact> sortedContacts) {
+		
+	}
+	
 }
