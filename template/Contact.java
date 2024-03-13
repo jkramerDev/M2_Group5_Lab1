@@ -33,10 +33,28 @@ class Contact {
 		phoneBook.add(new PhonebookEntry(number,type));
 	}
 	
-	public List<PhonebookEntry> getPhoneBookEntry()
+	public List<PhonebookEntry> getPhonebookEntries()
 	{
 		return phoneBook;
 	}
+	
+	@Override
+	public int hashCode()
+	{
+		int num = contactName.length();
+		num=num*phoneBook.size();
+		return num+6;
+	}
+	
+	@Override
+	public boolean equals(Object obj)
+	{
+		return false;
+	}
+	
+	
+	
+	
 //test
 	public static void main(String[] args)
 	{
