@@ -1,5 +1,8 @@
 package template;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * model a Contact 
  * Contact has a name & list of phonebook entries
@@ -12,12 +15,36 @@ package template;
 
 class Contact {
 	 
+	private String contactName;
+	private List<PhonebookEntry> phoneBook = new ArrayList<>();
 	
-
+	public Contact(String name)
+	{
+		contactName=name;
+	}
+	
+	public String getContactName()
+	{
+		return contactName;
+	}
+	
 	public void addPhonebookEntry(String number, String type)
 	{
-		
+		phoneBook.add(new PhonebookEntry(number,type));
+	}
+	
+	public List<PhonebookEntry> getPhoneBookEntry()
+	{
+		return phoneBook;
 	}
 //test
+	public static void main(String[] args)
+	{
+		Contact c1 = new Contact("John");
+		c1.addPhonebookEntry("2033334000", "home");
+		c1.addPhonebookEntry("2036334740", "work");
+		c1.addPhonebookEntry("2043534030", "cell");
+	}
 }
+
 //test
