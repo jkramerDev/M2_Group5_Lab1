@@ -16,13 +16,13 @@ public class PhonebookHandler implements iPhonebookHander{
 	@Override
 	public List<PhonebookEntry> binarySearch(List<Contact> sortedContacts, String name){
 		int first = 0;
-		int last = sortedContacts.length();
+		int last = sortedContacts.size();
 		int midpoint;
 		while(first <= last) {
 			midpoint = (first + last)/2;
-			if(name.equals(sortedContacts[midpoint].getContactName())) {
-				return sortedContacts[midpoint].getPhonebookEntry();
-			}else if (name.compareTo(sortedContacts[midpoint])){
+			if(name.equals(sortedContacts.get(midpoint).getContactName())) {
+				return sortedContacts.get(midpoint).getPhonebookEntries();
+			}else if (name.compareTo(sortedContacts.get(midpoint).getContactName())){
 				first = midpoint + 1;
 			}else {
 				last = midpoint - 1;
