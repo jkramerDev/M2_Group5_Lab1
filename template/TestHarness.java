@@ -43,8 +43,7 @@ public class TestHarness {
 		// 1) a call to search finds the user and displays their entries 
 		//(2) a call to search does not find the user & displays some detail illustrating same
 		TEST_Search(phonebookHander, sortedContacts, "Juan");
-		 
-
+		//testingSearch(phonebookHander, sortedContacts, "Juan");
 	}
 
 	// 
@@ -62,9 +61,13 @@ public class TestHarness {
 		
 		System.out.println("\n -- Search results for " + name + " -- ");
 		List<PhonebookEntry> selectedEntries = phonebookHander.binarySearch(sortedContacts, name);
+		if(selectedEntries == null) {
+			System.out.println(name + " is not in the list");
+		}else {
 		for (PhonebookEntry entry : selectedEntries) {
 			
-			System.out.println("Entries for " + name + " " +  entry.getType() + " " + entry.getPhoneNumber());
+			System.out.println("Entries for " + name + " " +  entry.getPhoneType() + " " + entry.getPhoneNumber());
+		}
 		}
 	}
 	
@@ -148,5 +151,29 @@ public class TestHarness {
 		phonebook.put(p5, p5.getPhonebookEntries());
 
 	}
-
+	
+	/*public static void testingSearch(PhonebookHandler phonebookHandler, List<Contact> sortedContacts, String name) {
+		name = "Juan";
+		System.out.println("\n -- Search results for " + name + " -- ");
+		List<PhonebookEntry> selectedEntries = phonebookHander.binarySearch(sortedContacts, name);
+		if(selectedEntries == null) {
+			System.out.println(name + " is not in the list");
+		}
+		for (PhonebookEntry entry : selectedEntries) {
+			
+			System.out.println("Entries for " + name + " " +  entry.getPhoneType() + " " + entry.getPhoneNumber());
+		}
+		name = "John";
+		System.out.println("\n -- Search results for " + name + " -- ");
+		List<PhonebookEntry> selectedEntries1 = phonebookHander.binarySearch(sortedContacts, name);
+		if(selectedEntries1 == null) {
+			System.out.println(name + " is not in the list");
+			
+		}else {
+		for (PhonebookEntry entry : selectedEntries1) {
+			
+			System.out.println("Entries for " + name + " " +  entry.getPhoneType() + " " + entry.getPhoneNumber());
+		}
+		}
+	}*/
 }

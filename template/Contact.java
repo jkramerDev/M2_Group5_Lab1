@@ -46,6 +46,21 @@ class Contact {
 		return num+6;
 	}
 	
+	@Override 
+	public String toString() {
+		String result = ("Name: " + contactName + ", Phone Number(s): [");
+		int size = phoneBook.size();
+		for(int i = 0; i < size; i++) {
+			PhonebookEntry contact = phoneBook.get(i);
+			result += contact.getPhoneNumber() + " " + contact.getPhoneType();
+			if(i < size - 1) {
+				result += ", ";
+			}
+		}
+		result += "]";
+		return result;
+	}
+	
 	@Override
 	public boolean equals(Object obj)
 	{

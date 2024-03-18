@@ -13,31 +13,36 @@ import java.util.*;
 
 public class PhonebookHandler implements iPhonebookHander{
 	
+	private Map<Contact, List<PhonebookEntry>> phonebook;
+	
+	public PhonebookHandler(Map<Contact, List<PhonebookEntry>> phonebook) {
+		this.phonebook = phonebook;
+	}
+	
 	@Override
 	public List<PhonebookEntry> binarySearch(List<Contact> sortedContacts, String name){
 		int first = 0;
-		int last = sortedContacts.size();
-		int midpoint;
+		int last = sortedContacts.size() - 1;
 		while(first <= last) {
-			midpoint = (first + last)/2;
-			if(name.equals(sortedContacts.get(midpoint).getContactName())) {
+			int midpoint = first + (last - first)/2;
+			String contact = sortedContacts.get(midpoint).getContactName();
+			int compare = name.compareTo(contact);
+			if(compare == 0) {
 				return sortedContacts.get(midpoint).getPhonebookEntries();
-			}else if (name.compareTo(sortedContacts.get(midpoint).getContactName())){
-				first = midpoint + 1;
-			}else {
+			}else if (compare < 0){
 				last = midpoint - 1;
+			}else {
+				first = midpoint + 1;
 			}
 		}
-		
+		return null;
 	}
-	
-	
 	
 	@Override
 	public List<Contact> sortByName() {
 	    List<Contact> names = new ArrayList<>(phonebook.keySet());
 
-	    // Sorting the names using bubble sort
+	    
 	    for (int i = 0; i < names.size() - 1; i++) {
 	        for (int j = 0; j < names.size() - i - 1; j++) {
 	            if (names.get(j).getContactName().compareTo(names.get(j + 1).getContactName()) > 0) {
@@ -53,18 +58,11 @@ public class PhonebookHandler implements iPhonebookHander{
 	
 	@Override
 	public void display(List<Contact> sortedContacts) {
+		System.out.println("Sorted Phonebook (Bubble Sort)");
 	    for (Contact contact : sortedContacts) {
-	        System.out.println("Contact: " + contact.getContactName());
-	        System.out.println("Phone Numbers:");
-	        List<PhonebookEntry> phoneNumbers = phonebook.get(contact);
-	        for (PhonebookEntry entry : phoneNumbers) {
-	            System.out.println(entry.getPhoneType() + ": " + entry.getPhoneNumber());
-	        }
-	        System.out.println(); // Add an empty line for better readability
+	        System.out.println(contact.getContactName());
 	    }
 	}
-	
-	
 }
 	
 	

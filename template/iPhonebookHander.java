@@ -13,7 +13,7 @@ public interface iPhonebookHander {
 	 * search:
 	 */
 	public List<PhonebookEntry> binarySearch(List<Contact> sortedContacts, String name);
-
+		
 	//iterate over the contacts.  
 	//no sorting here, just display
 	public void display(List<Contact> sortedContacts);
