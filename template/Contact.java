@@ -107,7 +107,35 @@ class Contact {
 		c2.addPhonebookEntry("2036334740", "work");
 		c2.addPhonebookEntry("2043534030", "cell");
 		
+		Contact c3 = new Contact("Meg");
+		
+		c3.addPhonebookEntry("2033334000", "home");
+		c3.addPhonebookEntry("2036334740", "work");
+		c3.addPhonebookEntry("2043534030", "cell");
+		
+		Contact c4 = new Contact("James");
+		
+		c4.addPhonebookEntry("2033334000", "home");
+		c4.addPhonebookEntry("2036334740", "work");
+		c4.addPhonebookEntry("2043534030", "cell");
+		
+		Contact c5 = new Contact("Alec");
+		
+		c5.addPhonebookEntry("2033334000", "home");
+		
+		Contact c6 = new Contact("Rob");
+		
+		c6.addPhonebookEntry("2033334000", "home");
+		c6.addPhonebookEntry("2043534030", "cell");
+		
 		System.out.println(c1.equals(c2));
+		System.out.println("c1 hash:" + c1.hashCode());
+		System.out.println("c2 hash:" + c2.hashCode());
+		System.out.println("c3 hash:" + c3.hashCode());
+		System.out.println("c4 hash:" + c4.hashCode());
+		System.out.println("c5 hash:" + c5.hashCode());
+		System.out.println("c6 hash:" + c6.hashCode());
+		
 	}
 }
 
