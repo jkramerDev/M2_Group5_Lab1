@@ -94,6 +94,7 @@ class Contact {
 	
 	
 //test
+	/*
 	public static void main(String[] args)
 	{
 		Contact c1 = new Contact("John");
@@ -137,6 +138,7 @@ class Contact {
 		System.out.println("c6 hash:" + c6.hashCode());
 		
 	}
+	*/
 }
 
 //test
