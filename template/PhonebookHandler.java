@@ -34,25 +34,34 @@ public class PhonebookHandler implements iPhonebookHander{
 	
 	
 	@Override
-	public List<Contact> sortByName(){
-		
-		List<String> names = new ArrayList<>(phonebook.keySet());
-		
-		for (int i = 0; i < names.size() - 1; i++) {
-            for (int j = 0; j < names.size() - (i - 1); j++) {
-                if (names.get(j).compareTo(names.get(j + 1)) > 0) {
-                	
-                
-                	String temp = names.get(j);
-                    names.set(j, names.get(j + 1));
-                    names.set(j + 1, temp);
-                }
-            }
+	public List<Contact> sortByName() {
+	    List<Contact> names = new ArrayList<>(phonebook.keySet());
+
+	    // Sorting the names using bubble sort
+	    for (int i = 0; i < names.size() - 1; i++) {
+	        for (int j = 0; j < names.size() - i - 1; j++) {
+	            if (names.get(j).getContactName().compareTo(names.get(j + 1).getContactName()) > 0) {
+	                Contact temp = names.get(j);
+	                names.set(j, names.get(j + 1));
+	                names.set(j + 1, temp);
+	            }
+	        }
+	    }
+
+	    return names;
 	}
 	
 	@Override
 	public void display(List<Contact> sortedContacts) {
-		
+	    for (Contact contact : sortedContacts) {
+	        System.out.println("Contact: " + contact.getContactName());
+	        System.out.println("Phone Numbers:");
+	        List<PhonebookEntry> phoneNumbers = phonebook.get(contact);
+	        for (PhonebookEntry entry : phoneNumbers) {
+	            System.out.println(entry.getPhoneType() + ": " + entry.getPhoneNumber());
+	        }
+	        System.out.println(); // Add an empty line for better readability
+	    }
 	}
 	
 	

@@ -28,7 +28,6 @@ class PhonebookEntry{
 	{
 		return phoneType;
 	}
-	
 		
 }
 	
