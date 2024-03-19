@@ -41,7 +41,8 @@ class Contact {
 	@Override
 	public int hashCode()
 	{
-		int num = contactName.length();
+		//int num = contactName.length();
+		int num = Character.getNumericValue(contactName.charAt(0));
 		num=num*phoneBook.size();
 		return num+6;
 	}
